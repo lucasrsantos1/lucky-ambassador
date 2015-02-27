@@ -1,5 +1,5 @@
-<%= form_for [@question, @comment] do |f| %>
-<%= f.hidden_field :commentable_type, :value => "Question" %>
+<%= form_for [@question, answer, @comment] do |f| %>
+  <%= f.hidden_field :commentable_type, :value => "Answer" %>
   <%= f.label :content %>
   <%= f.text_field :content %>
 
