@@ -1,0 +1,12 @@
+<p>Make Comment</p>
+
+<%= form_for [@answer, @comment] do |f| %>
+  <%= f.label :content %>
+  <%= f.text_field :content %>
+
+  <%= f.label :user_id %>
+  <%= f.text_field :user_id %>
+
+  <%= f.submit %>
+
+<% end %>
