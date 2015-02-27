@@ -7,6 +7,10 @@
 	</form>
 </div> -->
 
+<div class="error_message">
+  <p> <%= display_errors! %> </p>
+</div>
+
 <%= form_for :question, url: {action: "create"}, html: {class: "new_question"} do |f| %>
   <%= f.label :title %>:
   <%= f.text_field :title %><br />
