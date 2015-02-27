@@ -1,4 +1,5 @@
 <%= @question.title %><br>
+ <%= link_to("Add new Answer", new_question_answer_path(@question)) %>
  Question Comment form <%= render partial: "form"%>
 <% @question.comments.each do |comment| %>
   <%= comment.content %><br>

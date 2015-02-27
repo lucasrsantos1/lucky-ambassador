@@ -2,6 +2,13 @@ class QuestionsController < ApplicationController
 
   def index
     @questions = Question.all
+    if params[:order] == "votes"
+      @questions = Question.order(title: :asc)
+    elsif params[:order] == "trending"
+
+    else
+      @questions
+    end
   end
 
   def show
@@ -9,12 +16,12 @@ class QuestionsController < ApplicationController
     @comment = Comment.new
     @answer = Answer.new
   end
-  
+
   def new
 
     if is_authenticated?
       @question = Question.new
-    else 
+    else
       add_error!("User must log in before creating post.")
       redirect_to '/login'
     end
@@ -24,9 +31,9 @@ class QuestionsController < ApplicationController
   def create
     @question = current_user.questions.build(question_params)
     @question.save
-    
+
     unless @question.errors.messages.empty?
-      parse_ar_errors_for_display!(@question.errors.messages) 
+      parse_ar_errors_for_display!(@question.errors.messages)
       redirect_to new_question_url
     else
      redirect_to "/"
@@ -34,7 +41,7 @@ class QuestionsController < ApplicationController
 
   end
 
-  private 
+  private
     def question_params
       params.require(:question).permit(:url, :title)
     end
