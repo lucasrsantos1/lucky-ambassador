@@ -5,7 +5,7 @@ class CommentsController < ApplicationController
     comment.commentable_id = params[:question_id]
     comment.commentable_type = "Question"
     comment.save
-    redirect_to '/'
+    redirect_to "/questions/#{comment.commentable_id}"
   end
 
   private
