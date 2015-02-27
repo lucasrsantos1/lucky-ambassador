@@ -1,7 +1,7 @@
-<%= form_for @user, url {action: 'create'}, html: {class: 'login-form'} do |f| %>
+<%= form_for @user, url: {action: 'create'}, html: {class: 'login-form'} do |f| %>
 <%= f.label(:username, 'Username') %>
 <%= f.text_field(:username) %>
 <%= f.label(:password, 'Password') %>
-<%= f.text_field(:password) %>
+<%= f.password_field(:password) %>
 <%= f.submit %>
 <% end %>

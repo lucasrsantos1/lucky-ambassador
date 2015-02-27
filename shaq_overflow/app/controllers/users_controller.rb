@@ -3,13 +3,14 @@ class UsersController < ApplicationController
   before_action :require_login, except: [:new, :create]
 
   def new
-    @user.new
+    @user = User.new
   end
 
   def create
     @user = User.new(user_params)
     respond_to do |format|
       if @user.save
+        set_session
         format.html { redirect_to @user, notice: 'User Created' }
         format.json { render :user, status: :created, location: @user }
       else
