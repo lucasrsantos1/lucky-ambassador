@@ -11,13 +11,25 @@ class QuestionsController < ApplicationController
   end
   
   def new
-    @question = Question.new
+    if is_authenticated?
+      @question = Question.new
+    else 
+      add_error!("User must log in before creating post.")
+      redirect_to '/login'
+    end
   end
 
   def create
     @question = Question.new(question_params)
     @question.save
-    redirect_to '/'
+    
+    unless @question.errors.messages.empty?
+      parse_ar_errors_for_display!(@question.errors.messages) 
+      redirect_to new_question
+    else
+     redirect_to "/"
+   end
+    
 
   end
 
