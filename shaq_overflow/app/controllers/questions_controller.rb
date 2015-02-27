@@ -3,7 +3,7 @@ class QuestionsController < ApplicationController
   def index
     @questions = Question.all
     if params[:order] == "votes"
-      @questions = Question.order(title: :asc)
+      @questions = Question.order(title: :desc)
     elsif params[:order] == "trending"
 
     else
