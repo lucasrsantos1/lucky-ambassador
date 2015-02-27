@@ -17,15 +17,16 @@ class QuestionsController < ApplicationController
       add_error!("User must log in before creating post.")
       redirect_to '/login'
     end
+    @errors = display_errors!
   end
 
   def create
-    @question = Question.new(question_params)
+    @question = current_user.questions.build(question_params)
     @question.save
     
     unless @question.errors.messages.empty?
       parse_ar_errors_for_display!(@question.errors.messages) 
-      redirect_to new_question
+      redirect_to new_question_url
     else
      redirect_to "/"
    end
@@ -35,7 +36,7 @@ class QuestionsController < ApplicationController
 
   private 
     def question_params
-      params.require(:question).permit(:user_id, :url, :title)
+      params.require(:question).permit(:url, :title)
     end
 
 
