@@ -1,6 +1,12 @@
 <h1>Here are all the questions</h1>
 <h3>Click a question to view more</h3>
 
+<%= link_to("order by vote count", '/questions?order=votes') %> |
+
+<%= link_to("order by most recent", '/questions?order=trending') %> |
+
+<%= link_to("order by trending", '/') %><br>
+
 <% @questions.each do |question| %>
   Votes: | <%= question.votes.count %>
   Answers: | <%= question.answers.count %>
