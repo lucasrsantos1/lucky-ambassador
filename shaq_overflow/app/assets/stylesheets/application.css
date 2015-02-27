@@ -13,3 +13,53 @@
  *= require_tree .
  *= require_self
  */
+
+
+#shaq-tiles {
+  background-image: url(http://static.giantbomb.com/uploads/original/1/13641/2182953-shaq.jpg);
+  background-size: 100px;
+}
+
+#welcome-title {
+  font-family: 'Lobster', cursive;
+  font-size: 60px;
+  color: red;
+  margin-bottom: 10px;
+}
+
+#welcome-login-btn {
+  background-color: red;
+}
+
+#title {
+  font-family: 'Lobster', cursive;
+  font-size: 45px;
+  color: black;
+}
+
+#nav-bar img {
+  height: 80px;
+  vertical-align: bottom;
+  padding-left: 10px;
+}
+
+#nav-bar {
+  border-bottom: 2px solid #d3d3d3;
+  background-color: white;
+  color: #d3d3d3;
+  line-height: 80px;
+  font-size: 20px;
+  color: grey;
+  display: block;
+  position: fixed;
+  font-family: 'Josefin Sans', sans-serif;
+  width: 100%;
+ }
+
+ #nav-bar a:hover {
+  background-color: white;
+ }
+
+ #main {
+  padding-top: 100px;
+ }
