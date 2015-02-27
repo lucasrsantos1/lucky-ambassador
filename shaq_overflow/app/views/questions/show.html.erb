@@ -1,1 +1,4 @@
-<%= render partial: "form", locals: {answer: @answer} %>
+<%= @question.title %>
+<% @question.answers.each do |answer| %>
+  <%= anser.title %>|<%= answer.content %>
+<% end %>
