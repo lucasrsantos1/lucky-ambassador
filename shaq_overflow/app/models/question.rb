@@ -3,5 +3,6 @@ class Question < ActiveRecord::Base
   has_many :votes, as: :votable
   has_many :voters, through: :votes, source: :user
   has_many :answers
+  has_many :comments, as: :commentable
   validates :user_id, :url, :title, presence: true
 end
