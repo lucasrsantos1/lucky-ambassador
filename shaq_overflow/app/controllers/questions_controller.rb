@@ -9,6 +9,34 @@ class QuestionsController < ApplicationController
     @comment = Comment.new
     @answer = Answer.new
   end
+  
+  def new
 
+    if is_authenticated?
+      @question = Question.new
+    else 
+      add_error!("User must log in before creating post.")
+      redirect_to '/login'
+    end
+    @errors = display_errors!
+  end
+
+  def create
+    @question = current_user.questions.build(question_params)
+    @question.save
+    
+    unless @question.errors.messages.empty?
+      parse_ar_errors_for_display!(@question.errors.messages) 
+      redirect_to new_question_url
+    else
+     redirect_to "/"
+   end
+
+  end
+
+  private 
+    def question_params
+      params.require(:question).permit(:url, :title)
+    end
 
 end
