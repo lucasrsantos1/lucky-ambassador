@@ -11,6 +11,7 @@ class QuestionsController < ApplicationController
   end
   
   def new
+
     if is_authenticated?
       @question = Question.new
     else 
@@ -30,7 +31,6 @@ class QuestionsController < ApplicationController
     else
      redirect_to "/"
    end
-    
 
   end
 
@@ -38,6 +38,5 @@ class QuestionsController < ApplicationController
     def question_params
       params.require(:question).permit(:url, :title)
     end
-
 
 end
