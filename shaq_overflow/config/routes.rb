@@ -4,6 +4,13 @@ Rails.application.routes.draw do
       post 'comments' => 'comments#create'
     end
   end
+  resources :users
+
+  get 'login' => 'sessions#new'
+  post 'login' => 'sessions#create'
+  get 'logout' => 'sessions#destroy'
+  root :to => 'welcome#index'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
