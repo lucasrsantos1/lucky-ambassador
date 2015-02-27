@@ -2,13 +2,33 @@
 <html>
 <head>
   <title>ShaqOverflow</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
+  <link href="http://d2v52k3cl9vedd.cloudfront.net/basscss/5.0.0/basscss.min.css" rel="stylesheet">
+  <link href='http://fonts.googleapis.com/css?family=Josefin+Sans|Lobster' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" type="text/css" href="/assets/application.css">
 </head>
-<body>
 
-<%= yield %>
+<body>
+<div class="clearfix black" id="nav-bar">
+    <div class="sm-col">
+      <img src="http://static.giantbomb.com/uploads/original/1/13641/2182953-shaq.jpg"/>
+      <a href="/" class="button py2 button-transparent" id="title">Shaq Overflow</a>
+    </div>
+    <div class="sm-col-right">
+      <div id="shaq-height"></div>
+      <a href="/questions" class="button py2 button-transparent" >Questions</a>
+      <% if current_user %>
+      <a href="/logout" class="button py2 button-transparent">Logout</a>
+      <% else %>
+      <a href="/login" class="button py2 button-transparent">Login</a>
+      <a href="/signup" class="button py2 button-transparent">Sign Up</a>
+      <% end %>
+    </div>
+</div>
+<div id="main">
+
+  <%= yield %>
+
+</div>
 
 </body>
 </html>
