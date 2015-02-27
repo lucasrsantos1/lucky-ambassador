@@ -3,7 +3,7 @@ class CommentsController < ApplicationController
   def create
     comment = Comment.new(comments_params)
     comment.commentable_id = params[:question_id]
-    comment.commentable_type = "Question"
+    # comment.commentable_type = "Answer"
     comment.save
     redirect_to "/questions/#{comment.commentable_id}"
   end
