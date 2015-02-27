@@ -1,13 +1,13 @@
 <%= @question.title %><br>
-<% @question.commentable.each do |comment| %>
-  <%= comment.content %>
   <%= render partial: "form"%>
+<% @question.comments.each do |comment| %>
+  <%= comment.content %><br>
 <% end %>
 <% @question.answers.each do |answer| %>
   <%= answer.content %><br>
-  HI
+      <%= render partial: "answers/form", locals: {answer: answer}%>
   <% answer.comments.each do |comment| %>
     <%= comment.content %>
   <% end %>
-  <%= render partial: "answers/form"%>
+
 <% end %>

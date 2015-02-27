@@ -1,6 +1,4 @@
-<p>Make Comment</p>
-
-<%= form_for [@answer, @comment] do |f| %>
+<%= form_for [@question, answer, @comment] do |f| %>
   <%= f.label :content %>
   <%= f.text_field :content %>
 
