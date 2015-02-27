@@ -1,1 +1,1 @@
-# lucky-ambassador
+!(schema)[assets/schema.png]
