@@ -5,4 +5,9 @@ class Question < ActiveRecord::Base
   has_many :answers
   has_many :comments, as: :commentable
   validates :user_id, :url, :title, presence: true
+
+
+  def reset_all_answers
+    self.answers.update_all(accepted:false)
+  end
 end
