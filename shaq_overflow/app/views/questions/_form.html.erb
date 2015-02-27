@@ -1,4 +1,4 @@
-<h6>Make Comment</h6>
+<p>Make Comment</p>
 
 <%= form_for [@question, @comment] do |f| %>
   <%= f.label :content %>
@@ -6,9 +6,6 @@
 
   <%= f.label :user_id %>
   <%= f.text_field :user_id %>
-
-  <%= f.label :commentable_id %>
-  <%= f.text_field :commentable_id %>
 
   <%= f.submit %>
 
