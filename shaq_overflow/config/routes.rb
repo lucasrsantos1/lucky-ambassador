@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   resources :questions do
+    post 'comments' => 'comments#create'
     resources :answers do
       post 'comments' => 'comments#create'
     end
