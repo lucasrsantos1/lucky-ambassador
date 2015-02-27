@@ -15,9 +15,13 @@
     </div>
     <div class="sm-col-right">
       <div id="shaq-height"></div>
-      <a href="/" class="button py2 button-transparent" >About</a>
-      <a href="/" class="button py2 button-transparent">Burgers</a>
-      <a href="/" class="button py2 button-transparent">Fries</a>
+      <a href="/questions" class="button py2 button-transparent" >Questions</a>
+      <% if current_user %>
+      <a href="/logout" class="button py2 button-transparent">Logout</a>
+      <% else %>
+      <a href="/login" class="button py2 button-transparent">Login</a>
+      <a href="/signup" class="button py2 button-transparent">Sign Up</a>
+      <% end %>
     </div>
 </div>
 <div id="main">

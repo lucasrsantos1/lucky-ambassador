@@ -61,5 +61,9 @@
  }
 
  #main {
-  padding-top: 100px;
+  padding-top: 85px;
+ }
+
+ a {
+  color: red;
  }
