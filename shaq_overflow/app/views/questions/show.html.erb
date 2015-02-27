@@ -1,4 +1,5 @@
 <%= @question.title %>
 <% @question.answers.each do |answer| %>
   <%= answer.content %>
+  <%= render partial: "form"%>
 <% end %>
