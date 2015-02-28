@@ -15,4 +15,8 @@ class Question < ActiveRecord::Base
     self.answers.find_by(accepted: true)
   end
 
+  # def self.sort_votes
+  #   Question.
+  # end
+
 end

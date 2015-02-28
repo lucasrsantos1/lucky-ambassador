@@ -3,9 +3,9 @@
 
 <%= link_to("order by vote count", '/questions?order=votes') %> |
 
-<%= link_to("order by most recent", '/questions?order=trending') %> |
+<%= link_to("order by most recent", '/questions') %> |
 
-<%= link_to("order by trending", '/') %><br>
+<%= link_to("order by trending", '/questions?order=trending') %><br>
 
 <% @questions.each do |question| %>
   Votes: | <%= question.votes.count %>
