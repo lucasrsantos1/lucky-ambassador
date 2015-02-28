@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   get 'logout' => 'sessions#destroy'
   post '/questions/:question_id/answers/:answer_id/votes' => 'votes#create'
   post 'questions/:id/votes' => 'votes#create'
+  post '/questions/:question_id/answers/:answer_id/comment/:comment_id/votes' => 'votes#create'
   root :to => 'welcome#index'
 
   # The priority is based upon order of creation: first created -> highest priority.

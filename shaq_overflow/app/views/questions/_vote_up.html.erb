@@ -1,0 +1,1 @@
+<%= link_to("Up Vote", '/', class: "up-vote-question", data: { direction: "up", url: "/questions/#{@question.id}/votes", question_id: @question.id, votable_type: "Question" }) %>
