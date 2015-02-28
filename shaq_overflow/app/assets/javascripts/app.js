@@ -2,7 +2,18 @@ $(document).ready(function() {
 
  $("a.up-vote-answer").click(function(event) {
       event.preventDefault();
-      console.log("we here");
+      var $target = $(event.target);
+      console.log($target.data("url"))
+      $.ajax({
+        type: "post",
+        url: $target.data("url"),
+        data: $target.data(),
+        success:
+        function(response) {
+          $('#' + $target.data('answer-id')).empty();
+          $('#' + $target.data('answer-id')).append(response)
+        }
+      });
     }
   );
 
