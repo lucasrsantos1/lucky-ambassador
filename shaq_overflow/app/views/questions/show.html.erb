@@ -1,9 +1,12 @@
 <h1><%= @question.title %></h1><br>
 Votes: <span class="make-question-up-votes" id="<%= @question.id%>"><%= @question.q_net %></span>
-<%= link_to("Up Vote", '/', class: "up-vote-question", data: { direction: "up", url: "/questions/#{@question.id}/votes", question_id: @question.id, votable_type: "Question" }) %>
-<%= link_to("Down Vote", '/', class: "up-vote-question", data: { direction: "down", url: "/questions/#{@question.id}/votes",question_id: @question.id, votable_type: "Question" }) %>
- <%= link_to("Add new Answer", new_question_answer_path(@question)) %><br>
- Question Comment form <%= render partial: "form"%>
+<%= render partial: "vote_up" %>
+
+<%= render partial: "vote_down" %>
+<br>
+<%= link_to("Add new Answer", new_question_answer_path(@question)) %><br>
+
+<%= render partial: "form"%>
 <% @question.comments.each do |comment| %>
   <%= comment.content %><br>
 <% end %>
@@ -18,8 +21,11 @@ Votes: <span class="make-question-up-votes" id="<%= @question.id%>"><%= @questio
 <% @question.answers.each do |answer| %>
   Answer:<%= answer.content %><br>
   Votes: <span class="make-answer-up-votes" id="<%= answer.id%>"><%= answer.net %></span>
-  <%= link_to("Up Vote", '/', class: "up-vote-answer", data: { direction: "up", url: "/questions/#{@question.id}/answers/#{answer.id}/votes", answer_id: answer.id, question_id: @question.id, votable_type: "Answer" }) %>
-  <%= link_to("Down Vote", '/', class: "up-vote-answer", data: { direction: "down", url: "/questions/#{@question.id}/answers/#{answer.id}/votes", answer_id: answer.id, question_id: @question.id, votable_type: "Answer" }) %>
+
+<%= render partial: "answers/vote_up", locals: {answer: answer} %>
+
+<%= render partial: "answers/vote_down", locals: {answer: answer} %>
+
       Answer Comment form <%= render partial: "answers/form", locals: {answer: answer}%>
   <% answer.comments.each do |comment| %>
     <%= comment.content %>
