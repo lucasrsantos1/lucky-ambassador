@@ -5,6 +5,8 @@ class VotesController < ApplicationController
       answer_votes
     elsif params[:votableType] == "Question"
       question_votes
+    elsif params[:votableType] == "Comment"
+      comment_votes
     end
   end
 
@@ -37,4 +39,20 @@ class VotesController < ApplicationController
         render json: x
     end
   end
+
+  def comment_votes
+    if request.xhr?
+      if params[:direction] == "up"
+        vote = Vote.create(votable_type: params[:votableType], user_id: current_user.id, value: 1, votable_id: params[:questionId])
+        @comment = Comment.find(params[:questionId])
+      else
+        vote = Vote.create(votable_type: params[:votableType], user_id: current_user.id, value: -1, votable_id: params[:questionId])
+        @comment = Comment.find(params[:questionId])
+      end
+        x = @comment.c_net
+        x.to_json
+        render json: x
+    end
+  end
+
 end
