@@ -15,7 +15,8 @@
 <% @question.answers.each do |answer| %>
   Answer:<%= answer.content %><br>
   Votes: <span class="make-answer-up-votes" id="<%= answer.id%>"><%= answer.votes.count %></span>
-  <%= link_to("Up Vote", '/', class: "up-vote-answer", data: { url: "/questions/#{@question.id}/answers/#{answer.id}/votes", answer_id: answer.id, question_id: @question.id, votable_type: "Answer" }) %>
+  <%= link_to("Up Vote", '/', class: "up-vote-answer", data: { direction: "up", url: "/questions/#{@question.id}/answers/#{answer.id}/votes", answer_id: answer.id, question_id: @question.id, votable_type: "Answer" }) %>
+  <%= link_to("Down Vote", '/', class: "up-vote-answer", data: { direction: "down", url: "/questions/#{@question.id}/answers/#{answer.id}/votes", answer_id: answer.id, question_id: @question.id, votable_type: "Answer" }) %>
       Answer Comment form <%= render partial: "answers/form", locals: {answer: answer}%>
   <% answer.comments.each do |comment| %>
     <%= comment.content %>
