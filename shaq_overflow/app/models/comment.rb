@@ -7,7 +7,11 @@ class Comment < ActiveRecord::Base
   has_many :users, through: :votes
 
   def c_net
-    self.votes.where(value: 1).count - self.votes.where(value: -1).count
+    ups = votes.where(value: 1).count
+    downs = votes.where(value: -1).count
+    p ups
+    p downs
+    ups - downs
   end
 
 end
