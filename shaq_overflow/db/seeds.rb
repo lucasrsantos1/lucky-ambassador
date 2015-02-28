@@ -6,6 +6,8 @@ Question.create!(user_id: 1, url: 'bacon', title: 'more bacon')
 
 Question.create!(user_id: 1, url: 'mr.bacon', title: 'thats mr. bacon to you')
 
+Question.create!(user_id: 1, url: 'aaa', title: 'aaaaaa')
+
 Answer.create!(question_id: 1, user_id: 1, content: 'NO! I WANT CHICKEN!')
 
 Answer.create!(question_id: 1, user_id: 1, content: 'NO! I WANT CHICKEN!')

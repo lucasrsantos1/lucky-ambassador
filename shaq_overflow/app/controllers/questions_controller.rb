@@ -3,11 +3,10 @@ class QuestionsController < ApplicationController
   def index
     @questions = Question.all
     if params[:order] == "votes"
-      @questions = Question.order(title: :desc)
+      @questions = Question.all.sort_by {|q| q.votes.count }.reverse
     elsif params[:order] == "trending"
-
     else
-      @questions
+      @questions = Question.order(created_at: :desc)
     end
   end
 
