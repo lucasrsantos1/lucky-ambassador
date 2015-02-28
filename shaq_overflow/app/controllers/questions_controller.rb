@@ -5,6 +5,7 @@ class QuestionsController < ApplicationController
     if params[:order] == "votes"
       @questions = Question.all.sort_by {|q| q.votes.count }.reverse
     elsif params[:order] == "trending"
+      @questions = Question.all.sort_by {|q| [q.elapsed, -1 * q.votes.count] }
     else
       @questions = Question.order(created_at: :desc)
     end
