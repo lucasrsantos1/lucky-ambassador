@@ -27,6 +27,10 @@
   margin-bottom: 10px;
 }
 
+.welcome-user {
+  text-align: center;
+}
+
 #welcome-login-btn {
   background-color: red;
 }
