@@ -43,11 +43,11 @@ class VotesController < ApplicationController
   def comment_votes
     if request.xhr?
       if params[:direction] == "up"
-        vote = Vote.create(votable_type: params[:votableType], user_id: current_user.id, value: 1, votable_id: params[:questionId])
-        @comment = Comment.find(params[:questionId])
+        vote = Vote.create(votable_type: params[:votableType], user_id: current_user.id, value: 1, votable_id: params[:commentId])
+        @comment = Comment.find(params[:commentId])
       else
-        vote = Vote.create(votable_type: params[:votableType], user_id: current_user.id, value: -1, votable_id: params[:questionId])
-        @comment = Comment.find(params[:questionId])
+        vote = Vote.create(votable_type: params[:votableType], user_id: current_user.id, value: -1, votable_id: params[:commentId])
+        @comment = Comment.find(params[:commentId])
       end
         x = @comment.c_net
         x.to_json

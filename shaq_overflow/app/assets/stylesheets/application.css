@@ -219,3 +219,23 @@ form input[type="submit"]:hover {
 .form-content #laying-down {
   width: 400px;
 }
+
+.oops {
+  text-align: center;
+}
+
+.nice-font {
+  font-family: 'Lobster', cursive;
+  font-size: 40px;
+}
+
+.sub-title {
+  background-color: #d3d3d3;
+  font-family: 'Josefin Sans', sans-serif;
+  color: white;
+  padding: 5px;
+  width: 300px;
+  text-align: center;
+  margin: auto;
+  margin-bottom: 10px;
+}
