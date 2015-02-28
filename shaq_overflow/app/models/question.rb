@@ -19,8 +19,8 @@ class Question < ActiveRecord::Base
     Time.now - created_at
   end
 
-  # def self.sort_votes
-  #   Question.
-  # end
+  def q_net
+    self.votes.where(value: 1).count - self.votes.where(value: -1).count
+  end
 
 end
