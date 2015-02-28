@@ -1,4 +1,7 @@
 <h1><%= @question.title %></h1><br>
+Votes: <span class="make-question-up-votes" id="<%= @question.id%>"><%= @question.q_net %></span>
+<%= link_to("Up Vote", '/', class: "up-vote-question", data: { direction: "up", url: "/questions/#{@question.id}/votes", question_id: @question.id, votable_type: "Question" }) %>
+<%= link_to("Down Vote", '/', class: "up-vote-question", data: { direction: "down", url: "/questions/#{@question.id}/votes",question_id: @question.id, votable_type: "Question" }) %>
  <%= link_to("Add new Answer", new_question_answer_path(@question)) %><br>
  Question Comment form <%= render partial: "form"%>
 <% @question.comments.each do |comment| %>
