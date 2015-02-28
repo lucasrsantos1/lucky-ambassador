@@ -1,7 +1,13 @@
 class VotesController < ApplicationController
 
   def create
-    if request.xhr?
+    if params[:votableType] == "Answer"
+      answer_votes
+    end
+  end
+
+  def answer_votes
+  if request.xhr?
       if params[:direction] == "up"
         vote = Vote.create(votable_type: params[:votableType], user_id: current_user.id, value: 1, votable_id: params[:answerId])
         @answer = Answer.find(params[:answerId])
@@ -9,11 +15,9 @@ class VotesController < ApplicationController
         vote = Vote.create(votable_type: params[:votableType], user_id: current_user.id, value: -1, votable_id: params[:answerId])
         @answer = Answer.find(params[:answerId])
       end
-        @vote_values = []
-        @answer.votes.each {|vote| @vote_values << vote.value.to_i}
-           @anna = @vote_values.reduce(:+)
-        @anna.to_json
-        render json: @anna
+        x = @answer.net
+        x.to_json
+        render json: x
     end
   end
 
