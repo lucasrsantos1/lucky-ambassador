@@ -23,7 +23,7 @@ class QuestionsController < ApplicationController
       @question = Question.new
     else
       add_error!("User must log in before creating post.")
-      redirect_to '/login'
+      redirect_to root_url
     end
     @errors = display_errors!
   end
