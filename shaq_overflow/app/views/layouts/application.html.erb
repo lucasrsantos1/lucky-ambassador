@@ -18,8 +18,8 @@
     <div class="sm-col-right">
       <div id="shaq-height"></div>
       <%= link_to 'Questions', questions_path, id: "questions-btn", class: "button py2 button-transparent" %>
-      <%= link_to 'Add Question', new_question_path, class: "button py2 button-transparent" %>
       <% if current_user %>
+      <%= link_to 'Add Question', new_question_path, class: "button py2 button-transparent" %>
       <%= link_to 'Logout', logout_path, id: "logout-btn", class: "button py2 button-transparent" %>
       <% else %>
       <%= link_to 'Login', login_path, id: "login-btn", class: "button py2 button-transparent" %>

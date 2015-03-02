@@ -15,7 +15,7 @@ class ApplicationController < ActionController::Base
   end
 
   def require_login
-    redirect_to login_url unless is_authenticated?
+    redirect_to root_url unless is_authenticated?
   end
 
   def set_session

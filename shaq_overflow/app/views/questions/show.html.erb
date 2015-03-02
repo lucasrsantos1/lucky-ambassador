@@ -1,14 +1,16 @@
 <h1 class="question-title"><%= @question.title %></h1><br>
 Votes: <span class="make-question-up-votes" id="question-<%= @question.id%>"><%= @question.q_net %></span>
+<% if current_user %>
 <%= render partial: "vote_up" %>
 
 <%= render partial: "vote_down" %>
 <br>
-<%= link_to("Add new Answer", new_question_answer_path(@question)) %><br>
+  <%= link_to("Add new Answer", new_question_answer_path(@question)) %><br>
 
-<%= render partial: "form"%>
-<% @question.comments.each do |comment| %>
-  <%= comment.content %><br>
+  <%= render partial: "form"%>
+  <% @question.comments.each do |comment| %>
+    <%= comment.content %><br>
+  <% end %>
 <% end %>
 <!-- if best, show div -->
 <% if @question.best %>

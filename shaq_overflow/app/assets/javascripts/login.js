@@ -25,7 +25,7 @@ $(document).ready(function () {
     });
   });
 
-  $("body").on("click", ".close", function(){
+  $("body").on("click", ".close", function () {
     $(".overlay").remove();
     console.log('bacon');
   });
