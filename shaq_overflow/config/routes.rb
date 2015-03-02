@@ -1,4 +1,20 @@
 Rails.application.routes.draw do
+  resources :questions do
+    post 'comments' => 'comments#create'
+    resources :answers do
+      post 'comments' => 'comments#create'
+    end
+  end
+  resources :users
+
+  get 'login' => 'sessions#new'
+  post 'login' => 'sessions#create'
+  get 'logout' => 'sessions#destroy'
+  post '/questions/:question_id/answers/:answer_id/votes' => 'votes#create'
+  post 'questions/:id/votes' => 'votes#create'
+  post '/questions/:question_id/answers/:answer_id/comment/:comment_id/votes' => 'votes#create'
+  root :to => 'welcome#index'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
