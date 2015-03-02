@@ -8,11 +8,11 @@ class Question < ActiveRecord::Base
 
 
   def reset_all_answers
-    self.answers.update_all(accepted:false)
+    answers.update_all(accepted: false)
   end
 
   def best
-    self.answers.find_by(accepted: true)
+    answers.find_by(accepted: true)
   end
 
   def elapsed
